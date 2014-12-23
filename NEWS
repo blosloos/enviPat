@@ -1,0 +1,44 @@
+enviPat News
+
+CHANGES in version 1.9:
+
+	(1) src - changed float to double precision
+
+CHANGES in version 1.8:
+
+	(1) debug src Rprintf
+	(2) List entries changed to as.matrix, replacing data.frames 
+
+CHANGES in version 1.7:
+
+	(1) data - New Resolution data set added
+	(2) src - Normalization to monoisotopic peak abundance can now be enforced, even if this peak is not the most abundant one.  
+
+CHANGES in version 1.6:
+
+	(1) data(adducts) - debug of column Mult
+
+CHANGES in version 1.5:
+
+	(1) data isotopes - extended by C-ratio from nontarget package 
+
+
+CHANGES in version 1.3 & 1.4:
+
+	(1) src - code debug
+
+	(2) R - code debug
+
+
+CHANGES in version 1.2:
+
+	(1) src - new algorithm included for isotope pattern calculation (now algo=1)
+
+	(2) src - existing isotope pattern algorithms debugged and updated (now algo=2 & algo=3)
+
+	(3) data - New Resolution data sets added
+
+	(4) R - check_chemform: chemical formula parsing extended
+
+	(5) R - check_chemform: value: monoisotopic mass instead of mean mass
+
