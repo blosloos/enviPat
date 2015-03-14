@@ -6,29 +6,27 @@
 //  Copyright (c) 2013 EAWAG. All rights reserved.
 //
 
-#include <stdio.h>
-#include <stdlib.h>
 
 #include "profile.h"
-#include "math.h"
 
-int calc_profile_with_trace(    int n,
+int calc_profile_with_trace(    size_t n,
                                 double* m,
                                 double* a,
-                                unsigned int tr_num,
+                                size_t tr_num,
                                 double* trace,
                                 double* profile_mass,
                                 double* profile_a,
-                                int *profile_n,
+                                unsigned int *profile_n,
                                 int res,
                                 int profile_type,
-                                double thres_profile
+                                double thres_profile,
+                                int filter
                             ){
     
-    Peak *peaks = (Peak*)malloc(n*sizeof(Peak));
+    Peak *peaks = (Peak*)malloc(sizeof(Peak[n]));
     double a_max = 0.0;
-    
-    for (int k = 0; k < n; k++) {
+
+    for (ptrdiff_t k = 0; k < n; k++) {
         (peaks + k)->abundance = *(a+k);
         (peaks + k)->mass = *(m + k);
         
@@ -37,20 +35,21 @@ int calc_profile_with_trace(    int n,
         }
     }
     
+    
     qsort(peaks, n, sizeof(Peak), peak_sort_by_mass);
     qsort(trace, tr_num, sizeof(double), trace_sort_by_mass);
     
-    int index_prev_m = 0;
-    int c = 0;
+    unsigned int index_prev_m = 0;
+    unsigned int c = 0;
     
-    for (int i = 0; i < tr_num; i++) {
+    for (unsigned int i = 0; i < tr_num; i++) {
         
         double m = 0.0;
         m = *(trace + i);
         
         double value = 0.0;
         
-        for (int j = index_prev_m; j < n; j++) {
+        for (unsigned int j = index_prev_m; j < n; j++) {
             
             double mk = (peaks + j)->mass;
             double v = 0.0;
@@ -73,7 +72,7 @@ int calc_profile_with_trace(    int n,
                             index_prev_m = j;
                         }
                     }
-                }else{
+                }else if(filter == 0){
                     if (fabs(m - mk) > thres_profile) {
                         if (m < mk) {
                             break;
@@ -102,7 +101,7 @@ int calc_profile_with_trace(    int n,
                             index_prev_m = j;
                         }
                     }
-                }else{
+                }else if(filter == 0){
                     if (fabs(m - mk) > thres_profile) {
                         if (m < mk) {
                             break;
@@ -114,20 +113,25 @@ int calc_profile_with_trace(    int n,
             }
             value += v;
         }
-        if (c > 0) {
-            if (value > 0.0 || (value == 0.0 && *(profile_a + c - 1) > 0.0)) {
-                *(profile_a + c) = value;
-                *(profile_mass + c) = m;
-                c++;
+        if (filter == 0) {
+            if (c > 0) {
+                if (value > 0.0 || (value == 0.0 && *(profile_a + c - 1) > 0.0)) {
+                    *(profile_a + c) = value;
+                    *(profile_mass + c) = m;
+                    c++;
+                }
+            }else{
+                if (value > 0.0) {
+                    *(profile_a + c) = value;
+                    *(profile_mass + c) = m;
+                    c++;
+                }
             }
         }else{
-            if (value > 0.0) {
-                *(profile_a + c) = value;
-                *(profile_mass + c) = m;
-                c++;
-            }
+            *(profile_a + c) = value;
+            *(profile_mass + c) = m;
+            c++;
         }
-
     }
     
     *profile_n = c;
@@ -135,12 +139,12 @@ int calc_profile_with_trace(    int n,
     return 0;
 }
 
-int calc_profile(double* m, double* a, double* profile_mass, double* profile_a, unsigned int* num, int res, int profile_type, double thres_profile){
+int calc_profile(double* m, double* a, double* profile_mass, double* profile_a, unsigned long *num, int res, int profile_type, double thres_profile){
 
-    Peak *peaks = (Peak*)malloc(*num*sizeof(Peak));
+    Peak *peaks = (Peak*)malloc(*num * sizeof(Peak));
     double a_max = 0.0;
     
-    for (int k = 0; k < *num; k++) {
+    for (ptrdiff_t k = 0; k < *num; k++) {
         (peaks + k)->abundance = *(a+k);
         (peaks + k)->mass = *(m + k);
         
@@ -156,17 +160,17 @@ int calc_profile(double* m, double* a, double* profile_mass, double* profile_a, 
     
     double step = (end - start)/ res;
     
-    int index_prev_m = 0;
-    int c = 0;
+    unsigned int index_prev_m = 0;
+    size_t c = 0;
     
-    for (int i = 0; i < res; i++) {
+    for (unsigned int i = 0; i < res; i++) {
         
         double m = 0.0;
         m = start + i* step;
         
         double value = 0.0;
         
-        for (int j = index_prev_m; j < *num; j++) {
+        for (unsigned int j = index_prev_m; j < *num; j++) {
             
             double mk = (peaks + j)->mass;
             double v = 0.0;

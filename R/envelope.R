@@ -70,6 +70,7 @@ function(
 			tr1 = as.double(traceit),
 			r1 = as.integer(resolution[i]),
 			t1 = as.double(0),
+            filter = as.integer(1),
 			PACKAGE="enviPat"
 		)
 		if(length(out[[1]])==0){

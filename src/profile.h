@@ -9,27 +9,34 @@
 #ifndef CalcIsoStruct_profile_h
 #define CalcIsoStruct_profile_h
 
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
 #include "peak.h"
 
-int calc_profile_with_trace(int n,
+int calc_profile_with_trace(size_t n,
                             double* m,
                             double* a,
-                            unsigned int tr_num,
+                            size_t tr_num,
                             double* trace,
                             double* profile_mass,
                             double* profile_a,
-                            int *profile_n,
+                            unsigned int *profile_n,
                             int res,
                             int profile_type,
-                            double t);
+                            double t,
+                            int filter
+                            
+                            );
 
 int calc_profile(double* m,
                  double* a,
                  double* profile_mass,
                  double* profile_a,
-                 unsigned int* num,
+                 unsigned long* num,
                  int res,
                  int profile_type,
                  double thres_profile);
-
 #endif

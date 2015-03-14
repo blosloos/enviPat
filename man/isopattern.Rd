@@ -5,15 +5,16 @@
 \title{Isotope pattern calculation}
 
 \description{
-The function calculates the isotopic pattern (fine structure) of a given chemical formula or a
-set of chemical formulas (batch calculation), based on three fast and memory efficient algorithms. 
-The first algorithm can handle very large molecules and combinations of elements having many isotopes. 
-Returns accurate masses, abundances and isotopic compositions of the individual isotopologues. 
+The function calculates the isotopologues ("isotope fine structure") of a given chemical formula or a
+set of chemical formulas (batch calculation) with fast and memory efficient transition tree algorithms,
+which can handle relative pruning thresholds. 
+Returns accurate masses, probabilities and isotopic compositions of individual isotopologues. 
 The isotopes of elements can be defined by the user.
 }
 
 \usage{isopattern(isotopes, chemforms, threshold = 0.001, charge = FALSE, 
-emass = 0.00054858, plotit = FALSE, algo=2, rel_to_mono = FALSE, verbose = TRUE)}
+emass = 0.00054858, plotit = FALSE, algo=1, rel_to = 0, verbose = TRUE,
+return_iso_calc_amount = FALSE)}
 
 \arguments{
   
@@ -22,7 +23,7 @@ emass = 0.00054858, plotit = FALSE, algo=2, rel_to_mono = FALSE, verbose = TRUE)
 	\item{chemforms}{Vector with character strings of chemical formulas, such as data set \code{\link[enviPat]{chemforms}} 
 		or the second column in the value of \code{\link[enviPat]{check_chemform}}.}
 
-  	\item{threshold}{Abundance below which isotope peaks can be omitted, given as percentage of the most abundant isotope peak of the molecule. 
+  	\item{threshold}{Probability below which isotope peaks can be omitted, as specified by argument \code{rel_to}. 
 		Set to \code{0} if all peaks shall be calculated.}
 
   	\item{charge}{z in m/z. Either a single integer or a vector of integers with length equal to that of argument \code{chemforms}. 
@@ -34,37 +35,35 @@ emass = 0.00054858, plotit = FALSE, algo=2, rel_to_mono = FALSE, verbose = TRUE)
 
 	\item{algo}{Which algorithm to use? Type \code{1} or \code{2}. See details.}
 
-	\item{rel_to_mono}{Should abundances be normalized relative to the monoisotopic instead of the most abundant peak, \code{TRUE/FALSE}?}
+	\item{rel_to}{Probability definition, numeric \code{0,1,2,3 or 4}? See details.}
 
 	\item{verbose}{Verbose, \code{TRUE/FALSE}?}
+	
+	\item{return_iso_calc_amount}{Ignore; number of intermediate isotopologues.}
 }
 
 
 
 \details{
 
-Isotope pattern calculation can be done by chosing one of three algorithms, set by argument \code{algo}. All algorithms use
-hierarchical updates to derive the mass and abundance of a new isotopologue from an existing one, by steps of single isotope replacements.
-Memory usage is lower and in most cases faster for the first two algorithms as compared to the third, 
-allowing for calculation of very large molecules or inclusion of elements with many isotopes. Comparable in memory allocation, the second algorithm is 
-faster for very small molecules than the first - but much slower for larger ones. 
+Isotope pattern calculation can be done by chosing one of two algorithms, set by argument \code{algo}. Both algorithms use
+transition tree updates to derive the exact mass and probability of a new isotopologue from existing ones, by steps of single isotope replacements. 
+These transition tree approaches are memory-efficient and fast for a wide range of molecular formulas and are able to reproduce the isotope fine structure
+of molecules. The latter must often be pruned during calculation, c.p. argument \code{rel_to}. 
 
-The first algorithm \code{algo=1} uses tree-like combinatorial transitions to calculate daughter isotopologues from their parent node isotopologues, with
-the monoisotopic composition as root node.
-This approach first searches for branches of increasing abundance to find the isotopologue of maximum abundance, with transitions ordered as to minimize 
-the occurrence of decreasing branches. The remaining branches are subsequently omitted if they (a) fall below a threshold relative to this most abundant 
-isotopologue and (b) only contain branches of decreasing abundance. Furthermore, to avoid redundant calculations for transitions of the same isotope 
-(but not the same isotopologues!), this global search is conducted in elementwise subtrees that are then combined.
+\code{algo=1} grows transition trees within element-wise sub-molecules, whereas \code{algo==2} grows them in larger sub-molecules of two elements, if available.
+The latter approach can be slightly more efficient for very large or very complex molecules. The sub-isotopologues within sub-molecules are finally combined to
+the isotopologuees of the full molecule. In contrast, intermediate counts of sub-isotopologues instead of fine structures are returned for \code{return_iso_calc_amount==TRUE}
 
-The second algorithm \code{algo=2} does not use elementwise subtree maximum abundance searches with no differences to the first algorithm otherwise.
+\code{rel_to} offers 5 possibilities of how probabilities are defined and pruned, each affecting the \code{threshold} argument differently.
+Default option \code{rel_to=0} prunes and returns probabilities relative to the most intense isotope peak; 
+\code{threshold} states a percentage of the intensity of this latter peak.
+Similarly, option \code{rel_to=1} normalizes relative to the peak consisting of the most abundant isotopes for each element, which
+is often the monoisotopic one.
+Option \code{rel_to=2} prunes and returns absolute probabilities ; \code{threshold} is not a percentage but an abolute cutoff.
+Options \code{rel_to=3} and \code{rel_to=4} prune relative to the most intense and "monoisotopic" peak, respectively. 
+Although \code{threshold} is a percentage, both options return absolut probabilities .
 
-The third algorithm \code{algo=3} is similar to the one poposed by Li et al. (2010). Herein, mass states and abundances are calculated 
-individually within seperate blocks for each of the elements present in a molecule without (!) abundance thresholds. 
-These building-blocks are then combined to individual isotopologues, with peaks below the threshold abundance evenutally omitted. 
-In the presented version, a fast calculation of elementwise building-blocks and their combination to isotopologues is implemented so as to avoid redundant 
-calculations from both different updates or different combinations leading to the same isotopologue.
-
-Note that when \code{rel_to_mono} is set to \code{TRUE}, the abundance \code{threshold} is specified relative to the monoisotopic instead of the most abundant peak.
 }
 
 
@@ -74,18 +73,13 @@ List with length equal to length of vector \code{chemforms}; names of entries in
 Each entry in that list contains information on individual isotopologues (rows) with columns:
 
 \item{m/z}{First column; m/z of an isotope peak.}
-\item{abundance}{Second column; abundance of an isotope peak. Abundances are set relative to the most abundant peak of the isotope pattern.}
+\item{abundance}{Second column; abundance of an isotope peak. Probabilities  are set relative to the most abundant peak of the isotope pattern.}
 \item{12C, 13C, 1H, 2H, ...}{Third to all other columns; atom counts of individual isotopes for an isotope peak.}
 
 }
 
 \references{
-
-Loos, M. & Gerber, C., 201X. Tree-like hierarchy for the calculation of very large isotope patterns. To be submitted.
-
-Li, L., Karabacak, N., Cobb, J., Wang, Q., Hong, P., agar, J., 2010. Memory-efficient calculation of the isotopic mass states of a molecule.
-Rapid Communications in Mass Spectrometry, 24: 2689-2696.
-
+M.Loos, C. Gerber, ...., 2015. Tree-like hierarchy for the calculation of very large isotope patterns. To be submitted.
 }
 
 \author{Martin Loos, Christian Gerber}
@@ -103,8 +97,8 @@ For correct adduct isotope pattern calculations, please check \code{\link[enviPa
 
 \section{warning}{
 
-Too low values for \code{threshold} may lead to unnecessary calculation of low abundance peaks - to the extent that not enough memory is available 
-for either of the two algorithms. This is especially critial if \code{rel_to_mono} is set to \code{TRUE}.
+Too low values for \code{threshold} may lead to unnecessary calculation of low probable isotope peaks - to the extent that not enough memory is available 
+for either of the two algorithms.
 
 }
 
@@ -131,7 +125,7 @@ pattern<-isopattern(
   plotit=TRUE,
   charge=FALSE,
   emass=0.00054858,
-  algo=2
+  algo=1
 )
 ############################
 # Single chemical formula ##
@@ -143,7 +137,7 @@ pattern<-isopattern(
   plotit=TRUE,
   charge=FALSE,
   emass=0.00054858,
-  algo=2
+  algo=1
 )
 ############################
 
