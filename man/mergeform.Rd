@@ -10,9 +10,9 @@
 
 \arguments{
 
-  \item{formula1}{(Vector of first chemical formula(s), character string(s)}
+  \item{formula1}{Vector of first chemical formula(s), character string(s)}
 
-  \item{formula2}{Second chemical formula, character string}
+  \item{formula2}{Second chemical formula, single character string}
 
 }
 
