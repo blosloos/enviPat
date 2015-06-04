@@ -26,7 +26,7 @@ function(
 	if(!any(rel_to==c(0,1,2,3,4))){stop("invalid rel_to")}
 	if(!is.logical(verbose)){stop("invalid verbose")}
     if(return_iso_calc_amount=="TRUE"){return_iso_calc_amount2=1}else{return_iso_calc_amount2=0}
-    ############################################################################
+	############################################################################
     # (2) run isotope pattern generator ######################################## 
     pattern<-list(0)
     for(i in 1:length(chemforms)){

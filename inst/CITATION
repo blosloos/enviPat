@@ -1,0 +1,16 @@
+bibentry(	bibtype = "Article",
+			title="Accelerated Isotope Fine Structure Calculation Using Pruned Transition Trees",
+			author = c(person("Martin", "Loos"),
+                    person("Christian", "Gerber"),
+                    person("Francesco", "Corona"),
+                    person("Juliane", "Hollender"),
+                    person("Heinz", "Singer")),
+			journal="Analytical Chemistry",
+			volume= "87",
+			number= "11",
+			pages= "5738-5744",
+			year= "2015",
+			textVersion="Loos, M., Gerber, C., Corona, F., Hollender, J., Singer, H. (2015). 
+			Accelerated isotope fine structure calculation using pruned transition trees, 
+			Analytical Chemistry 87(11), 5738-5744.",
+			url = "http://pubs.acs.org/doi/abs/10.1021/acs.analchem.5b00941")

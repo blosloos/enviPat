@@ -2,9 +2,10 @@ enviPat News
 
 CHANGES in version 2.0:
 
-	(1) data - debug adducts
-	(2) src - typ cast debug, increase + retrieve of max. terms per element blocks
-	(3) R - matrix debug for single-peaked isotope patterns
+	(1) citation - enviPat publication accepted! 
+	(2) src - algorithm updates, typ cast debug, increase + retrieve of max. terms per element blocks
+	(3) data - debug adducts
+	(4) R - matrix debug for single-peaked isotope patterns
 
 
 CHANGES in version 1.9:
