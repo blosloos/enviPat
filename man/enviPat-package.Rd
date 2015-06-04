@@ -40,8 +40,20 @@ LazyLoad: \tab yes\cr
 \author{
 	Martin Loos, Christian Gerber
 
-	Maintainer: Martin Loos <loosmart@eawag.ch>
+	Maintainer: Martin Loos <martin.loos@alumni.ethz.ch>
 }
+
+\references{
+Loos, M., Gerber, C., Corona, F., Hollender, J., Singer, H. (2015).  Accelerated isotope fine structure calculation using 
+pruned transition trees, Analytical Chemistry 87(11), 5738-5744.
+
+	\url{
+		http://pubs.acs.org/doi/abs/10.1021/acs.analchem.5b00941
+	}
+
+}
+
+
 
 \keyword{ package }
 \seealso{

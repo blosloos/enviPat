@@ -21,6 +21,7 @@ function(
     if((length(charge)!=length(chemforms)) & length(charge)>1){stop("length of charge does not match number of chemforms!\n")}
     if(any(charge==0) & any(charge!=FALSE)){stop("WARNING: charge=0?")}
     if(any(is.numeric(charge)==FALSE) & any(charge!=FALSE)){stop("WARNING: charge either numeric or FALSE!")}
+	if(length(charge)==1 & length(chemforms)>1){charge<-rep(charge,length(chemforms))}
     if(!any(algo==c(1,2))){stop("invalid algo argument!")}
     options(digits=10);
 	if(!any(rel_to==c(0,1,2,3,4))){stop("invalid rel_to")}
@@ -65,13 +66,7 @@ function(
         if(return_iso_calc_amount2){
             pattern[[i]]<-out
         }else{
-            lengit<-length(out$NAMES)
-            out2<-matrix(ncol=(lengit-1),nrow=length(out$mass))
-            for(j in 1:(lengit-1)){
-                out2[,j]<-out[[j]]
-            }
-            out2<-out2[order(out2[,1],decreasing=FALSE),,drop=FALSE]
-            colnames(out2)<-out$NAMES[-lengit]
+            out2<-out[order(out[,1],decreasing=FALSE),,drop=FALSE]
             colnames(out2)[1]<-"m/z"
             if(charge[i]!=FALSE){
                 out2[,1]<-c(out2[,1]-(charge[i]*emass));  # electrone mass
@@ -81,14 +76,9 @@ function(
             }
             pattern[[i]]<-out2
             if(plotit==TRUE){
-				if(rel_to==1 || rel_to==2){
-					plot(out2[,1],out2[,2],type="h",
-					xlab="m/z",ylab="Relative probability",main=names(pattern)[i])
-				}else{
-					plot(out2[,1],out2[,2],type="h",
-					xlab="m/z",ylab="Probability",main=names(pattern)[i])				
-				}
-			}
+                plot(out2[,1],out2[,2],type="h",
+                xlab="m/z",ylab="Relative abundance",main=names(pattern)[i])
+            }
         }
       }  
   }

@@ -52,6 +52,18 @@ Exactive/R25000@200
 
 Exactive/R12500@200
 
+OTFusion,QExactiveHF/480000@200
+
+OTFusion,QExactiveHF/240000@200
+
+OTFusion,QExactiveHF/120000@200
+
+OTFusion,QExactiveHF/60000@200
+
+OTFusion,QExactiveHF/30000@200
+
+OTFusion,QExactiveHF/15000@200
+
 TripleTOF5600/R28000@200 
 
 QTOF_XevoG2-S/R25000@200

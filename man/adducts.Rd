@@ -55,7 +55,7 @@ and e-mailing of high-resolution exact-mass electrospray ionization mass spectra
 
 \examples{
 # example of M+H adduct batch calculation
-data(adducts);
+data(adducts)
 data(isotopes)
 data(chemforms)
 # (1) check formulas for consistency - recommended

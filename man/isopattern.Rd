@@ -79,7 +79,16 @@ Each entry in that list contains information on individual isotopologues (rows) 
 }
 
 \references{
-M.Loos, C. Gerber, ...., 2015. Tree-like hierarchy for the calculation of very large isotope patterns. To be submitted.
+Loos, M., Gerber, C., Corona, F., Hollender, J., Singer, H. (2015).  Accelerated isotope fine structure calculation using 
+pruned transition trees, Analytical Chemistry 87(11), 5738-5744.
+
+	\url{
+		http://pubs.acs.org/doi/abs/10.1021/acs.analchem.5b00941
+	}
+	
+	\url{
+		http://www.envipat.eawag.ch/index.php
+	}
 }
 
 \author{Martin Loos, Christian Gerber}
@@ -101,6 +110,7 @@ Too low values for \code{threshold} may lead to unnecessary calculation of low p
 for either of the two algorithms.
 
 }
+
 
 \seealso{
 	\code{\link[enviPat]{isopattern}}

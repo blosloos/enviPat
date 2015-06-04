@@ -3,7 +3,7 @@ function(checked,resmass,nknots=13,spar=0.1,plotit=TRUE){
 
     ############################################################################
     # (1) issue warnings #######################################################
-    if(length(resmass[,1])<10){stop("WARNING: not enough data points in resmass\n");}
+	if(length(resmass[,1])<10){stop("WARNING: not enough data points in resmass\n");}
     if(any(checked[,3]<min(resmass[,1])) || any(checked[,3]>max(resmass[,1]))){stop("WARNING: some mean_mass out of range of resmass\n");}
     if(nknots<3 || nknots>length(resmass[,1])){stop("WARNING: invalid nknots\n")}
     if(spar<=0 || spar>=1){stop("WARNING: invalid spar; spar=(0,1]")}
