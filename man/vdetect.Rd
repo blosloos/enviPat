@@ -61,6 +61,7 @@ Each entry in that list contains the centroids, intensoids or valleys of the env
 # batch of chemforms #######
 data(isotopes)
 data(chemforms)
+chemforms<-chemforms[1:5]
 
 pattern<-isopattern(
   isotopes,

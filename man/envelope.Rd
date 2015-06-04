@@ -79,6 +79,7 @@ Journal of the American Society for Mass Spectrometry, 19, 1867--1874.
 # batch of chemforms #######
 data(isotopes)
 data(chemforms)
+chemforms<-chemforms[1:5]
 
 pattern<-isopattern(
   isotopes,
