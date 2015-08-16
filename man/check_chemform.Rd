@@ -7,11 +7,12 @@
 \description{Checks chemical formulas (=a vector of character strings) for consistency with usage in \code{\link[enviPat]{isopattern}}; 
  calculation of the molecular mass.}
 
-\usage{check_chemform(isotopes, chemforms)}
+\usage{check_chemform(isotopes, chemforms,get_sorted=FALSE)}
 
 \arguments{
   \item{isotopes}{\code{\link[enviPat]{isotopes}}}
   \item{chemforms}{Vector of character strings with chemical formulas}
+  \item{get_sorted}{Should elements in each formula be sorted according to their order in \code{isotopes}?}
 }
 
 

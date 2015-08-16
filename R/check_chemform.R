@@ -1,5 +1,5 @@
 check_chemform <-
-function(isotopes,chemforms){
+function(isotopes,chemforms,get_sorted=FALSE){
 
     ############################################################################
     # internal function definitions ############################################
@@ -89,7 +89,7 @@ function(isotopes,chemforms){
     }
     info <- isotopes2           
     for (i in 1:length(chemforms)) {
-        mass<-c(0); 
+        mass <- c(0); 
         warnit <- FALSE;
         if(chemforms[i]==""){
           warnit <- TRUE;
@@ -316,6 +316,11 @@ function(isotopes,chemforms){
           }
           element1<-element2;rm(element2);
           number1<-number2;rm(number2);
+		  if(get_sorted){ # ensure unambiguous order of elements in the formula
+				this<-order(match(element1,info))
+				number1<-number1[this]
+				element1<-element1[this]
+		  }
           formel<-""
           for(k in 1:length(element1)){
             formel<-paste(formel,element1[k],number1[k],sep="")
