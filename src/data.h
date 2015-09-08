@@ -121,7 +121,7 @@ char* element_symbol[308] = {
     "Sr",
     "Sr",
     "Sr",
-    "St",
+    "Sr",
     "Y",
     "Zr",
     "Zr",
