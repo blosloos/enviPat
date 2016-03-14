@@ -17,7 +17,7 @@ check_ded(formulas, deduct)
 }
 
 \value{
-Returns a vector with length 0f input \code{formulas}, with \code{TRUE} if deduct is not contained and \code{FALSE} otherwise.
+Returns a vector with length of input \code{formulas}, with \code{TRUE} if deduct is not contained and \code{FALSE} otherwise.
 }
 
 \author{Martin Loos}

@@ -80,6 +80,7 @@ Martin Loos, Christian Gerber
 data(isotopes);
 data(resolution_list);
 data(chemforms);
+chemforms<-chemforms[1:10];
 
 checked<-check_chemform(
     isotopes,

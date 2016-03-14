@@ -2438,7 +2438,7 @@ SEXP iso_pattern_4(SEXP sum
                     }
 
                     if (t == 0) {
-                        if (sum_sticks > 0.0 ) {
+                        if (sum_sticks > 0.0 && centroid_temp > 0.0 ) {
                             *(c_a + j) = centroid_temp;
                             *(c_m + j) = centroid/sum_sticks;
                             j++;

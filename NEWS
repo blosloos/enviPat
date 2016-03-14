@@ -4,6 +4,7 @@ CHANGES in version 2.1:
 
 	(1) data - debug isotopes Sr, Pt
 	(2) R - check_chemform with sorted element output
+	(3) src - zero abundance centroids removed
 
 CHANGES in version 2.0:
 
