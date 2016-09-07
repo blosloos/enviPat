@@ -1,8 +1,8 @@
 Package: enviPat
 Type: Package
 Title: Isotope Pattern, Profile and Centroid Calculation for Mass Spectrometry
-Version: 2.1
-Date: 2016-03-14
+Version: 2.2
+Date: 2016-09-07
 Author: Martin Loos, Christian Gerber
 Maintainer: Martin Loos <martin.loos@alumni.ethz.ch>
 Description: Fast and very memory-efficient calculation of isotope patterns,

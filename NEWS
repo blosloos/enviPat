@@ -1,5 +1,10 @@
 enviPat News
 
+CHANGES in version 2.2:
+
+	(1) data - debug adducts line 37
+	(2) data - character replace factor columns
+	
 CHANGES in version 2.1:
 
 	(1) data - debug isotopes Sr, Pt
