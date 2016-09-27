@@ -13,19 +13,19 @@
   \item{isotopes}{\code{\link[enviPat]{isotopes}}}
   \item{chemforms}{Vector of character strings with chemical formulas}
   \item{get_sorted}{Should elements in each formula be sorted according to their order in \code{isotopes}?}
+  \item{get_list}{Return list with vectors of elements atom counts contained in each chemical formula?}
 }
 
 
 \details{
 
-	Checks if (1) a chemical formula contains only letters, numbers and square brackets, (2) elements can be found 
-	in \code{\link[enviPat]{isotopes}} and (3) letters are all followed by a number of atom counts.
-	If (3) is missing, it is automatically set to 1.
-	
+	Default checks if (1) a chemical formula contains only letters, numbers and square or round brackets, (2) elements can be found 
+	in \code{\link[enviPat]{isotopes}} and (3) letters and round brackets are all followed by a number of counts.
+	Where (3) are missing, they are set to 1.
 
 	(2) must consist of an upper case letter, possibly followed by lower case letters; to refer to individual isotopes
-	(e.g., from isotope labelling of a molecule, e.g., N5 vs. [15]N2N3), square brackets may precede the capital letter.
-	Anything else that may usually be part of a standard chemical formula (e.g., (+), (C4H3)2, dashes,...) is not permissible.
+	(e.g., from isotope labelling of a molecule, e.g., N5 vs. [15]N2N3), square brackets may precede the capital letter.	
+	Any other symbols which may be part of a chemical formula (e.g., charges (+), dashes, asterisks, ...) are not permissible.
 
 
 	The molecular mass will be calculated from isotope masses and abundances listed in \code{\link[enviPat]{isotopes}}.
@@ -34,10 +34,11 @@
 
 
 \value{
-Dataframe with 3 columns:
+Dataframe with 3 columns for \code{get_list=FALSE}:
 \item{warning}{Correct chemical formula, \code{FALSE}/\code{TRUE}?}
 \item{new_formula}{Chemical formula}
 \item{monoisotopic_mass}{Monoisotopic mass}
+Or list containing vector of elements for \code{get_list=TRUE}.
 }
 
 
