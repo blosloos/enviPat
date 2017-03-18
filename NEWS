@@ -7,7 +7,9 @@ CHANGES in version 2.3:
 CHANGES in version 2.2:
 
 	(1) data - debug adducts line 37
-	(2) data - character replace factor columns
+	(2) data - character replaces factor columns
+	(3) R check_chemform - can now return list with vectors
+	(4)	data - new TOF resolution data set added, renaming of data sets
 	
 CHANGES in version 2.1:
 
@@ -38,7 +40,7 @@ CHANGES in version 1.7:
 
 CHANGES in version 1.6:
 
-	(1) data(adducts) - debug of column Mult
+	(1) data adducts - debug of column Mult
 
 CHANGES in version 1.5:
 

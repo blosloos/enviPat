@@ -1,5 +1,5 @@
 check_chemform <-
-function(isotopes,chemforms,get_sorted=FALSE){
+function(isotopes,chemforms,get_sorted=FALSE,get_list=FALSE){
 
     ############################################################################
     # internal function definitions ############################################
@@ -63,14 +63,9 @@ function(isotopes,chemforms,get_sorted=FALSE){
     ############################################################################
     
     ############################################################################
-    capitals <- c("[","A", "B", "C", "D", "E", "F", "G", "H",
-        "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
-        "T", "U", "V", "W", "X", "Y", "Z")
-    numbers <- c("0", "1", "2", "3", "4", "5", "6", "7", "8",
-        "9")
-    allpossible<-c(capitals,numbers,"(",")","]","a","b","c","d","e","f","g","h","i",
-      "j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
-    )
+    capitals<-c("[",LETTERS)
+	numbers <-  as.character(0:10)
+    allpossible <- c(capitals,numbers,"(",")","]",letters)
     masses <- c()
     warn <- c()
     elem <- unique(as.character(isotopes[, 1]))
@@ -88,6 +83,7 @@ function(isotopes,chemforms,get_sorted=FALSE){
         }
     }
     info <- isotopes2           
+	if(get_list) listed<-vector("list",length(chemforms))
     for (i in 1:length(chemforms)) {
         mass <- c(0); 
         warnit <- FALSE;
@@ -328,24 +324,39 @@ function(isotopes,chemforms,get_sorted=FALSE){
               as.numeric(info[info[,1]==element1[k],2][1])*as.numeric(number1[k])
             )  
           }
-       }        
+        }        
         ########################################################################
-        # make the final entry #################################################
+        # (10) make final entry ################################################
         if(warnit==FALSE){
-          warn<-c(warn,FALSE);
-          masses<-c(masses,mass);
-          chemforms[i]<-formel;
+			if(!get_list){
+				warn<-c(warn,FALSE);
+				masses<-c(masses,mass);
+				chemforms[i]<-formel;
+			}else{
+				number1<-as.numeric(number1)
+				names(number1)<-element1
+				listed[[i]]<-number1
+				names(listed)[i]<-chemforms[i]
+			}			
         }else{
-          warn<-c(warn,TRUE);
-          masses<-c(masses,-9999);  
-        }
+			if(!get_list){
+				warn<-c(warn,TRUE);
+				masses<-c(masses,-9999); 
+			}else{
+				listed[[i]]<-numeric()
+				names(listed)[i]<-"invalid formula"
+			}		 
+		}
     }    
-    ############################################################################    
-    checked <- data.frame(warn, chemforms, masses)
-    names(checked) <- c("warning", "new_formula", "monoisotopic_mass")
-    checked[,2]<-as.character(checked[,2]);
-    return(checked);
-  
+    ############################################################################  
+	if(!get_list){	
+		checked <- data.frame(warn, chemforms, masses);
+		names(checked) <- c("warning", "new_formula", "monoisotopic_mass");
+		checked[,2]<-as.character(checked[,2]);
+		return(checked);
+	}else{
+		return(listed);
+	}
 }        
         
         
