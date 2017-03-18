@@ -14,7 +14,7 @@
 \format{
 
 The format is:
-List with 29 data sets: Instrument_Resolution@m/z_(massRange_instrumentMode_slicerMode) 
+List with 29 data sets: Instrument_(massRange_instrumentMode_slicerMode)_Resolution@m/z 
 
 Elite/R240000@400
 
@@ -72,7 +72,7 @@ Sciex_TripleTOF6600_R25000@200
 
 Sciex_QTOFX500R_R25000@200
 
-Agilent_QTOF6550_R25000@200_low_extended_highSens
+Agilent_low_extended_highSens_QTOF6550_R25000@200
   
 }
 \source{
