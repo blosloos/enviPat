@@ -1,10 +1,10 @@
 \name{resolution_list}
 \alias{resolution_list}
 \docType{data}
-\title{Resolutions (R) list for Themo Orbitrap and QExactive mass spectrometers}
+\title{Resolutions (R) list for mass spectrometers}
 \description{
 
-	List of different resolutions R=f(m/z) for various high-resolution mass spectrometers.
+	List of different resolutions R=f(m/z) for various (high-resolution) mass spectrometers.
 	For each of the instruments, different resolution settings are available. 
 	Here, R is defined as R=(m/z)/(dm/z), with dm/z = peak width at half maximum.
 	Serves as input to \link[enviPat]{getR} to interpolate R from given molecular masses.
@@ -14,7 +14,7 @@
 \format{
 
 The format is:
-List with 19 data sets: Instrument/Resolution@m/z
+List with 29 data sets: Instrument_Resolution@m/z_(massRange_instrumentMode_slicerMode) 
 
 Elite/R240000@400
 
@@ -64,9 +64,15 @@ OTFusion,QExactiveHF/30000@200
 
 OTFusion,QExactiveHF/15000@200
 
-TripleTOF5600/R28000@200 
-
 QTOF_XevoG2-S/R25000@200
+
+Sciex_TripleTOF5600_R25000@200
+
+Sciex_TripleTOF6600_R25000@200
+
+Sciex_QTOFX500R_R25000@200
+
+Agilent_QTOF6550_R25000@200_low_extended_highSens
   
 }
 \source{

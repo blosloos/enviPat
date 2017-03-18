@@ -1,5 +1,9 @@
 enviPat News
 
+CHANGES in version 2.3:
+
+	(1) data - new resolution data sets added for Sciex and Agilent (Q)TOFs
+
 CHANGES in version 2.2:
 
 	(1) data - debug adducts line 37
