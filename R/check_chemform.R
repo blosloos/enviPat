@@ -1,11 +1,20 @@
 check_chemform <-
-function(isotopes,chemforms,get_sorted=FALSE,get_list=FALSE){
+function(
+	isotopes,
+	chemforms,
+	get_sorted = FALSE,
+	get_list = FALSE
+){
+
+    ############################################################################
+	if(any(grepl(" ", chemforms))) stop("\n Some or all of strings in chemforms contain empty spaces - please revise")
+    ############################################################################
 
     ############################################################################
     # internal function definitions ############################################
     # (A) Multiplier ###########################################################
     multif<-
-    function(formula1,fact,numbers){
+    function(formula1, fact, numbers){
         formulas<-c();
         ########################################################################
         # on first chemical formula ############################################
