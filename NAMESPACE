@@ -1,6 +1,4 @@
+useDynLib(enviPat, .registration = TRUE)
 export(isopattern,check_chemform,check_several,envelope,getR,isowrap,vdetect,check_ded,multiform,subform,mergeform)
-
-useDynLib(enviPat, iso_ppm_Call, iso_pattern_Call, iso_pattern_Call_2, iso_pattern_Call_3, iso_centroid_Call, iso_profile_with_trace_Call)
-
 import("graphics")
 import("stats")
