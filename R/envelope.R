@@ -12,18 +12,18 @@ function(
 
     ############################################################################
     # (1) issue warnings #######################################################
-    if((length(resolution)!=length(pattern)) & length(resolution)>1){stop("length of resolution does not match length of pattern list!\n")}
-    if(ppm==TRUE & dmz=="get"){stop("\n WARNING: ppm=TRUE -> dmz must be numerical!\n");}
-    if(ppm==TRUE & dmz<0){stop("\n WARNING: ppm=TRUE -> dmz must be >0\n");}
-    if(dmz=="get"){if(any(resolution<1)){stop("WARNING: invalid resolution!\n")}}
-    if(env!="Gaussian" & env!="CauchyLorentz"){stop("WARNING: invalid env argument\n")}
-    if(ppm!=FALSE & dmz=="get" & frac>1){stop("WARNING: invalid frac argument\n")}
-    if(ppm!=FALSE & dmz=="get" & frac<0){stop("WARNING: invalid frac argument\n")}    
-    if(is.list(pattern)==FALSE){stop("WARNING: pattern must be a list\n")}
-    if(length(pattern[[1]])<3 || colnames(pattern[[1]])[1:2]!=c("m/z","abundance")){stop("WARNING: is list, but has invalid entries\n")}
-    if(ppm!="TRUE"&ppm!="FALSE"){stop("WARNING: ppm invalid\n")}
-    if(plotit!="TRUE"&plotit!="FALSE"){stop("WARNING: plotit invalid. TRUE, FALSE.\n")}
-	if(!is.logical(verbose)){stop("invalid verbose")}
+    if((length(resolution)!=length(pattern)) & length(resolution)>1) stop("length of resolution does not match length of pattern list!\n")
+    if(ppm==TRUE & dmz=="get") stop("\n WARNING: ppm=TRUE -> dmz must be numerical!\n")
+    if(ppm==TRUE & dmz<0) stop("\n WARNING: ppm=TRUE -> dmz must be >0\n")
+    if(dmz=="get") if(any(resolution<1))stop("WARNING: invalid resolution!\n")
+    if(env!="Gaussian" & env!="CauchyLorentz")stop("WARNING: invalid env argument\n")
+    if(ppm!=FALSE & dmz=="get" & frac>1) stop("WARNING: invalid frac argument\n")
+    if(ppm!=FALSE & dmz=="get" & frac<0) stop("WARNING: invalid frac argument\n")    
+    if(is.list(pattern)==FALSE) stop("WARNING: pattern must be a list\n")
+    if(length(pattern[[1]])<3 || !all(colnames(pattern[[1]])[1:2] == c("m/z", "abundance"))) stop("WARNING: is list, but has invalid entries\n")
+    if(ppm!="TRUE"&ppm!="FALSE") stop("WARNING: ppm invalid\n")
+    if(plotit!="TRUE"&plotit!="FALSE") stop("WARNING: plotit invalid. TRUE, FALSE.\n")
+	if(!is.logical(verbose)) stop("invalid verbose")
     options(digits=10);
     ############################################################################
     # (2) create stick masses ##################################################

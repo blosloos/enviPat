@@ -14,19 +14,19 @@ function(
 
     ############################################################################
     # (1) issue warnings #######################################################
-    if(length(isotopes)!=5){stop("WARNING: invalid isotope list\n")}
-    if(threshold>100 || threshold<0){stop("WARNING: invalid threshold; 0<=threshold<100.\n")}  
-    if(plotit!="TRUE"&plotit!="FALSE"){stop("WARNING: plotit invalid. TRUE, FALSE.\n")}
-    if(emass!=0.00054858){cat("NOTE: You are sure that is the mass of an electrone?")}
-    if((length(charge)!=length(chemforms)) & length(charge)>1){stop("length of charge does not match number of chemforms!\n")}
-    if(any(charge==0) & any(charge!=FALSE)){stop("WARNING: charge=0?")}
-    if(any(is.numeric(charge)==FALSE) & any(charge!=FALSE)){stop("WARNING: charge either numeric or FALSE!")}
-	if(length(charge)==1 & length(chemforms)>1){charge<-rep(charge,length(chemforms))}
-    if(!any(algo==c(1,2))){stop("invalid algo argument!")}
-    options(digits=10);
-	if(!any(rel_to==c(0,1,2,3,4))){stop("invalid rel_to")}
-	if(!is.logical(verbose)){stop("invalid verbose")}
-    if(return_iso_calc_amount=="TRUE"){return_iso_calc_amount2=1}else{return_iso_calc_amount2=0}
+    if(length(isotopes)!=5) stop("WARNING: invalid isotope list\n")
+    if(threshold>100 || threshold<0) stop("WARNING: invalid threshold; 0<=threshold<100.\n")
+    if(plotit!="TRUE"&plotit!="FALSE") stop("WARNING: plotit invalid. TRUE, FALSE.\n")
+    if(emass != 0.00054858) cat("NOTE: You are sure that is the mass of an electrone?")
+    if((length(charge) != length(chemforms)) & length(charge)>1) stop("length of charge does not match number of chemforms!\n")
+    if(any(charge == 0) & any(charge != FALSE)) stop("WARNING: charge=0?")
+    if(any(is.numeric(charge) == FALSE) & any(charge!=FALSE)) stop("WARNING: charge either numeric or FALSE!")
+	if(length(charge)==1 & length(chemforms)>1) charge <- rep(charge, length(chemforms))
+    if(!any(algo==c(1,2))) stop("invalid algo argument!")
+    options(digits = 10);
+	if(!(rel_to %in% c(0, 1, 2, 3, 4))) stop("invalid rel_to") 
+	if(!is.logical(verbose)) stop("invalid verbose")
+    if(return_iso_calc_amount=="TRUE") return_iso_calc_amount2 <- 1 else return_iso_calc_amount2 <- 0
 	############################################################################
     # (2) run isotope pattern generator ######################################## 
     pattern<-list(0)

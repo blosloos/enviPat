@@ -44,7 +44,7 @@ Chemical formulas must conform to what is described in \code{\link[enviPat]{chec
 }
 
 \source{
-\url{http://fiehnlab.ucdavis.edu/staff/kind/Metabolomics/MS-Adduct-Calculator/}
+\url{https://fiehnlab.ucdavis.edu/staff/kind/Metabolomics/MS-Adduct-Calculator/}
 }
 
 \references{

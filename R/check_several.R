@@ -3,10 +3,10 @@ function(pattern,dmz,ppm=TRUE){
 
     ############################################################################
     # (1) issue warnings #######################################################
-    if(length(pattern[[1]])<2 || colnames(pattern[[1]])[c(1,2)]!=c("m/z","abundance")){stop("WARNING: pattern has invalid entries\n")}
-    if(ppm==TRUE & dmz<0){stop("\n WARNING: ppm=TRUE -> dmz must be >0\n");}
-    if(ppm!=TRUE & ppm!=FALSE){stop("WARNING: ppm TRUE or FALSE")}
-    if(length(pattern)<2){stop("WARNING: nothing to compare")}
+    if(length(pattern[[1]]) < 2 || !all(colnames(pattern[[1]])[1:2] == c("m/z","abundance"))) stop("WARNING: pattern has invalid entries\n")
+    if(ppm==TRUE & dmz < 0) stop("\n WARNING: ppm=TRUE -> dmz must be >0\n")
+    if(ppm!=TRUE & ppm!=FALSE) stop("WARNING: ppm TRUE or FALSE")
+    if(length(pattern) < 2) stop("WARNING: nothing to compare")
     ############################################################################
     # (2) check ################################################################    
     # (2.1) disassemble ######################################################## 
