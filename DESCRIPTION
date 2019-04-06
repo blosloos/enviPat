@@ -10,6 +10,8 @@ Description: Fast and very memory-efficient calculation of isotope patterns,
     detection and centroidization or intensoid calculation. Batch processing,
     resolution interpolation, wrapper, adduct calculations and molecular
     formula parsing.
+	Loos, M., Gerber, C., Corona, F., Hollender, J., Singer, H. (2015) 
+	<doi:10.1021/acs.analchem.5b00941>
 License: GPL-2
 BugReports: https://github.com/blosloos/enviPat/issues
 URL: http://www.envipat.eawag.ch/, http://pubs.acs.org/doi/abs/10.1021/acs.analchem.5b00941
