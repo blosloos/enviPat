@@ -2,14 +2,14 @@ isopattern <-
 function(
   isotopes,
   chemforms,
-  threshold=.001,
-  charge=FALSE,
-  emass=0.00054858,
-  plotit=FALSE,
-  algo=1,
-  rel_to=0,
-  verbose=TRUE,
-  return_iso_calc_amount=FALSE
+  threshold = .001,
+  charge = FALSE,
+  emass = 0.00054857990924,
+  plotit = FALSE,
+  algo = 1,
+  rel_to = 0,
+  verbose = TRUE,
+  return_iso_calc_amount = FALSE
   ){
 
     ############################################################################
