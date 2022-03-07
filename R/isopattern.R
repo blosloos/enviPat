@@ -23,7 +23,6 @@ function(
     if(any(is.numeric(charge) == FALSE) & any(charge!=FALSE)) stop("WARNING: charge either numeric or FALSE!")
 	if(length(charge)==1 & length(chemforms)>1) charge <- rep(charge, length(chemforms))
     if(!any(algo==c(1,2))) stop("invalid algo argument!")
-    options(digits = 10);
 	if(!(rel_to %in% c(0, 1, 2, 3, 4))) stop("invalid rel_to") 
 	if(!is.logical(verbose)) stop("invalid verbose")
     if(return_iso_calc_amount=="TRUE") return_iso_calc_amount2 <- 1 else return_iso_calc_amount2 <- 0
