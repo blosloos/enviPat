@@ -82,7 +82,7 @@ function(
       }  
   }
   names(pattern)<-as.character(chemforms);
-  if(verbose){cat(" done.");}
+  if(verbose){cat(" done.\n");}
   ############################################################################ 
   # (3) output ###############################################################
   return(pattern)
