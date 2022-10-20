@@ -77,6 +77,7 @@ function(
         }
       }  
   }
+
   names(pattern) <- as.character(chemforms)
   if(verbose) message(" done.")
   ############################################################################ 
