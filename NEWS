@@ -1,5 +1,10 @@
 enviPat News
 
+CHANGES in version 2.5:
+
+	(1) src - possible protection stack imbalance corrected
+	(2) R check_several data.frame column name changed
+	
 CHANGES in version 2.4:
 
 	(1) src - registering foreign function calls

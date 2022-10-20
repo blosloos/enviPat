@@ -31,8 +31,8 @@ Dataframe with 4 columns, with number of rows equal to the length of argument \c
 
 	\item{compound}{Chemical formula of the compound}
 	\item{warning}{Overlap detected?}
-	\item{to?}{If overlap: with wich other compound(s)? Refers to row number, recycled for peak\#.}
-	\item{peak\#}{If overlap: with which peak(s) of the other compound(s)? Refers to peak number.}
+	\item{to?}{If overlap: with wich other compound(s)? Refers to row number, recycled for peak_number.}
+	\item{peak_number}{If overlap: with which peak(s) of the other compound(s)? Refers to peak number.}
 
 }
 

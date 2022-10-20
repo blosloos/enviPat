@@ -27,7 +27,7 @@ function(
     options(digits=10);
     ############################################################################
     # (2) create stick masses ##################################################
-    if(verbose){cat("\n Calculate profiles ...")}
+    if(verbose) message("Calculate profiles ...")
     if(env=="Gaussian"){
 		type1=0
     }else{
@@ -86,8 +86,8 @@ function(
 			}
 		}
     }
-	names(profiles)<-names(pattern)
-    if(verbose){cat(" done.")}
+	names(profiles) <- names(pattern)
+    if(verbose) message(" done.")
     ############################################################################
     # (3) output ###############################################################
     return(profiles) 

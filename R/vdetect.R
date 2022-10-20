@@ -14,7 +14,7 @@ function(
     options(digits = 10);
     ############################################################################
     # (2) detect ###############################################################
-    if(verbose) cat(paste("\n Detect ",detect,"s... ",sep=""))
+    if(verbose) message(paste0("Detect ", detect, "s... "))
     getlist <- list(0);
     for(i in 1:length(profiles)){
         if(detect=="centroid") return_type <- 0
@@ -42,7 +42,7 @@ function(
 		}
     }
 	names(getlist) <- names(profiles)
-    if(verbose) cat(" done.")
+    if(verbose) message(" done.")
     ############################################################################
     # (3) output ###############################################################
     #if(detect=="centroid") assign(detect,getlist);return(centroid);

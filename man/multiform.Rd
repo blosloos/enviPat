@@ -6,11 +6,11 @@
 \description{Multiply all atom numbers in a chemical formula by a factor}
 
 
-\usage{multiform(formula1,fact)}
+\usage{multiform(formula_in,fact)}
 
 \arguments{
 
-  \item{formula1}{Chemical formula to be multiplied, vector of character strings}
+  \item{formula_in}{Chemical formula to be multiplied, vector of character strings}
 
   \item{fact}{Factor to multiply with}
 
@@ -31,8 +31,8 @@ Chemical formulas must conform to what is described in \code{\link[enviPat]{chec
 
 
 \examples{
-formula1<-c("C10[13]C2H10Cl10")
-multiform(formula1,3)
+formula_in <- "C10[13]C2H10Cl10"
+multiform(formula_in, 3)
 }
 
 

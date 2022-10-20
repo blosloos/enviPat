@@ -175,6 +175,7 @@ int alloc_peaks(int p_l, size_t iso_amount, double **m_, double **a_, int **cc_)
         if (p_l >= INT_LIMIT || p_l < 1) {
 
             Rprintf("\ninvalid peak limit");
+			UNPROTECT(6);
             return R_NilValue;
         }
 
@@ -315,6 +316,7 @@ int alloc_peaks(int p_l, size_t iso_amount, double **m_, double **a_, int **cc_)
                 free(m_);
                 free(a_);
                 free(cc_);
+				UNPROTECT(3);
                 return R_NilValue;
             }
 
@@ -404,6 +406,7 @@ SEXP iso_pattern_Call_4(SEXP sum, SEXP peak_limit, SEXP threshold, SEXP iso_list
     if (p_l >= INT_LIMIT || p_l < 1) {
 
         Rprintf("\ninvalid peak limit");
+		UNPROTECT(6);
         return R_NilValue;
     }
 
@@ -660,6 +663,7 @@ SEXP iso_pattern_Call_4(SEXP sum, SEXP peak_limit, SEXP threshold, SEXP iso_list
         if (p_l >= INT_LIMIT || p_l < 1) {
 
             Rprintf("\ninvalid peak limit");
+			UNPROTECT(6);
             return R_NilValue;
         }
 
@@ -907,6 +911,7 @@ SEXP iso_pattern_Call_4(SEXP sum, SEXP peak_limit, SEXP threshold, SEXP iso_list
         if (p_l >= INT_LIMIT || p_l < 1) {
 
             Rprintf("\ninvalid peak limit");
+			UNPROTECT(6);
             return R_NilValue;
         }
 
@@ -1733,6 +1738,7 @@ SEXP iso_pattern_2(SEXP sum
             free(m_);
             free(a_);
             free(cc_);
+			UNPROTECT(3);
             return R_NilValue;
         }
 
@@ -2665,10 +2671,12 @@ SEXP iso_pattern_4(SEXP sum
 
         if (tr_num >= INT_LIMIT || tr_num < 1) {
             Rprintf("\ninvalid amount of trace values");
+			UNPROTECT(7);
             return R_NilValue;
         }
         if (n >= INT_LIMIT || n < 1) {
             Rprintf("\ninvalid peak limit");
+			UNPROTECT(7);
             return R_NilValue;
         }
 
@@ -2684,6 +2692,7 @@ SEXP iso_pattern_4(SEXP sum
         int msg = calc_profile_with_trace(n, m, a, tr_num, tr, p_m, p_a, &p_n, r, p_t, t, f);
         if (msg) {
             Rprintf("\nCould not calculate profile");
+			UNPROTECT(7);
             return R_NilValue;
         }
 
