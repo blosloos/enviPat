@@ -24,7 +24,7 @@ The list serves as input into several package nontarget-functions. The first col
 contains names of specific isotopes used for labeled compounds. 
 }
 \source{
-\url{http://physics.nist.gov/cgi-bin/Compositions/stand_alone.pl}
+\url{https://physics.nist.gov/cgi-bin/Compositions/stand_alone.pl}
 }
 \references{
 Kind, T. and Fiehn, O., 2007. Seven golden rules for heuristic filtering  of molecular formulas obtained by 

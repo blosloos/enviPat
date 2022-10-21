@@ -83,11 +83,11 @@ Loos, M., Gerber, C., Corona, F., Hollender, J., Singer, H. (2015).  Accelerated
 pruned transition trees, Analytical Chemistry 87(11), 5738-5744.
 
 	\url{
-		http://pubs.acs.org/doi/abs/10.1021/acs.analchem.5b00941
+		https://pubs.acs.org/doi/abs/10.1021/acs.analchem.5b00941
 	}
 	
 	\url{
-		http://www.envipat.eawag.ch/index.php
+		https://www.envipat.eawag.ch/index.php
 	}
 }
 

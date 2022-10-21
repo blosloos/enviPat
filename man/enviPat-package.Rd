@@ -21,7 +21,7 @@ Furthermore, includes
 (5) a list of adducts formed during electorspray ionization (ESI).
 
 
-A web-based GUI for enviPat is freely available under \url{www.envipat.eawag.ch/}.
+A web-based GUI for enviPat is freely available under \url{https://www.envipat.eawag.ch}.
 }
 
 \details{
@@ -48,7 +48,7 @@ Loos, M., Gerber, C., Corona, F., Hollender, J., Singer, H. (2015).  Accelerated
 pruned transition trees, Analytical Chemistry 87(11), 5738-5744.
 
 	\url{
-		http://pubs.acs.org/doi/abs/10.1021/acs.analchem.5b00941
+		https://pubs.acs.org/doi/abs/10.1021/acs.analchem.5b00941
 	}
 
 }
