@@ -17,7 +17,7 @@ function(
     if(length(isotopes) != 5) stop("WARNING: invalid isotope list\n")
     if(threshold > 100 || threshold < 0) stop("WARNING: invalid threshold; 0<=threshold<100.\n")
     if(plotit != "TRUE" & plotit != "FALSE") stop("WARNING: plotit invalid. TRUE, FALSE.\n")
-    if(emass != 0.00054858) message("NOTE: You are sure that is the mass of an electrone?")
+    if(emass != 0.00054857990924) message("NOTE: You are sure that is the mass of an electrone?")
     if((length(charge) != length(chemforms)) & length(charge) > 1) stop("length of charge does not match number of chemforms!\n")
     if(any(charge == 0) & any(charge != FALSE)) stop("WARNING: charge=0?")
     if(any(is.numeric(charge) == FALSE) & any(charge != FALSE)) stop("WARNING: charge either numeric or FALSE!")
