@@ -1,0 +1,72 @@
+enviPat News
+
+CHANGES in version 2.4:
+
+	(1) src - registering foreign function calls
+	
+CHANGES in version 2.3:
+
+	(1) data - new resolution data sets added for Sciex and Agilent (Q)TOFs
+
+CHANGES in version 2.2:
+
+	(1) data - debug adducts line 37
+	(2) data - character replaces factor columns
+	(3) R check_chemform - can now return list with vectors
+	(4)	data - new TOF resolution data set added, renaming of data sets
+	
+CHANGES in version 2.1:
+
+	(1) data - debug isotopes Sr, Pt
+	(2) R - check_chemform with sorted element output
+	(3) src - zero abundance centroids removed
+
+CHANGES in version 2.0:
+
+	(1) citation - enviPat publication accepted! 
+	(2) src - algorithm updates, typ cast debug, increase + retrieve of max. terms per element blocks
+	(3) data - debug adducts & new resolution sets
+	(4) R - matrix debug for single-peaked isotope patterns
+
+CHANGES in version 1.9:
+
+	(1) src - changed float to double precision
+
+CHANGES in version 1.8:
+
+	(1) debug src Rprintf
+	(2) List entries changed to as.matrix, replacing data.frames 
+
+CHANGES in version 1.7:
+
+	(1) data - New Resolution data set added
+	(2) src - Normalization to monoisotopic peak abundance can now be enforced, even if this peak is not the most abundant one.  
+
+CHANGES in version 1.6:
+
+	(1) data adducts - debug of column Mult
+
+CHANGES in version 1.5:
+
+	(1) data isotopes - extended by C-ratio from nontarget package 
+
+
+CHANGES in version 1.3 & 1.4:
+
+	(1) src - code debug
+
+	(2) R - code debug
+
+
+CHANGES in version 1.2:
+
+	(1) src - new algorithm included for isotope pattern calculation (now algo=1)
+
+	(2) src - existing isotope pattern algorithms debugged and updated (now algo=2 & algo=3)
+
+	(3) data - New Resolution data sets added
+
+	(4) R - check_chemform: chemical formula parsing extended
+
+	(5) R - check_chemform: value: monoisotopic mass instead of mean mass
+
