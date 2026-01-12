@@ -130,8 +130,10 @@ int alloc_peaks(int p_l, size_t iso_amount, double **m_, double **a_, int **cc_)
                 return R_NilValue;
             }
         }
-        SETLENGTH(trace_R, n + 1);
-        UNPROTECT(4);
+
+		PROTECT(trace_R = Rf_lengthgets(trace_R, n + 1));		
+		
+        UNPROTECT(5);
         return trace_R;
     }
 
@@ -302,8 +304,9 @@ int alloc_peaks(int p_l, size_t iso_amount, double **m_, double **a_, int **cc_)
                 UNPROTECT(1);
             }
 
-            SETLENGTH(mass_R, r);
-            SETLENGTH(a_R, r);
+			PROTECT(mass_R = Rf_lengthgets(mass_R, r));
+			PROTECT(a_R = Rf_lengthgets(a_R, r));
+			
             SET_VECTOR_ELT(iso_pattern, 0, mass_R);
             SET_VECTOR_ELT(iso_pattern, 1, a_R);
 
@@ -353,7 +356,7 @@ int alloc_peaks(int p_l, size_t iso_amount, double **m_, double **a_, int **cc_)
             free(a_);
             free(cc_);
             free(names);
-            UNPROTECT(4);
+            UNPROTECT(6);
 
 #if SHOW_DETAILS == 1
             end = clock();
@@ -1724,8 +1727,8 @@ SEXP iso_pattern_2(SEXP sum
             UNPROTECT(1);
         }
 
-        SETLENGTH(mass_R, r);
-        SETLENGTH(a_R, r);
+		PROTECT(mass_R = Rf_lengthgets(mass_R, r));
+		PROTECT(a_R = Rf_lengthgets(a_R, r));
         SET_VECTOR_ELT(iso_pattern, 0, mass_R);
         SET_VECTOR_ELT(iso_pattern, 1, a_R);
 
@@ -1776,7 +1779,7 @@ SEXP iso_pattern_2(SEXP sum
         free(cc_);
         free(names);
         
-        UNPROTECT(4);
+        UNPROTECT(6);
 
 #if SHOW_DETAILS == 1
         end = clock();
