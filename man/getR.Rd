@@ -17,7 +17,7 @@
 
   \item{resmass}{Dataframe with two columns, resolution and mass; such as the list entries in \code{\link{resolution_list}}.}
 
-  \item{nknots}{Integer number of knots to use for the smoothing spline. Default = 6. See also \code{\link[stats]{smooth.spline}}.}
+  \item{nknots}{Integer number of knots to use for the smoothing spline. Default = 13. See also \code{\link[stats]{smooth.spline}}.}
 
   \item{spar}{Smoothing parameter, (0,1]. See also \code{\link[stats]{smooth.spline}}.}
 

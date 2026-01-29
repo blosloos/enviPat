@@ -72,7 +72,13 @@ Sciex_TripleTOF6600_R25000@200
 
 Sciex_QTOFX500R_R25000@200
 
-Agilent_low_extended_highSens_QTOF6550_R25000@200
+Sciex_ZenoTOF7600_R30000@200 
+
+Agilent_QTOF6550_low_extended_highSens_R25000@200
+
+Agilent_QTOF6550_low_extended2GHz_highRes
+
+Agilent_QTOF6550_low_highRes4GHz_highRes
   
 }
 \source{

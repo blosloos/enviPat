@@ -134,7 +134,6 @@ pattern<-isopattern(
   threshold=0.1,
   plotit=TRUE,
   charge=FALSE,
-  emass=0.00054858,
   algo=1
 )
 ############################
@@ -146,7 +145,6 @@ pattern<-isopattern(
   threshold=0.1,
   plotit=TRUE,
   charge=FALSE,
-  emass=0.00054858,
   algo=1
 )
 ############################
