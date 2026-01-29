@@ -2,7 +2,7 @@ Package: enviPat
 Type: Package
 Title: Isotope Pattern, Profile and Centroid Calculation for Mass Spectrometry
 Version: 2.8
-Date: 2026-01-12
+Date: 2026-01-29
 Authors@R: c(
 	person(given = "Martin", family = "Loos", role = c("aut", "cre"), email = "mloos@envibee.ch"),
 	person(given = "Christian", family = "Gerber", role = "aut"))
