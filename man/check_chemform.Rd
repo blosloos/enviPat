@@ -21,12 +21,16 @@
 
 	Default checks if (1) a chemical formula contains only letters, numbers and square or round brackets, (2) elements can be found 
 	in \code{\link[enviPat]{isotopes}} and (3) letters and round brackets are all followed by a number of counts.
-	Where (3) are missing, they are set to 1.
+	Where (3) is missing, an atom count of 1 is inserted.
 
 	(2) must consist of an upper case letter, possibly followed by lower case letters; to refer to individual isotopes
 	(e.g., from isotope labelling of a molecule, e.g., N5 vs. [15]N2N3), square brackets may precede the capital letter.	
 	Any other symbols which may be part of a chemical formula (e.g., charges (+), dashes, asterisks, ...) are not permissible.
-
+	
+	Errors of missing or round brackets for isotope labelling are corrected if they appear at the beginning of the molecular formula or
+	after whitespaces within the formula (e.g., (12)C10 15N or 12C10 (15)N would be corrected to [12]C10[15]N). 
+	Any fronting, trailing or mid-formula whitespaces are then removed. 
+	It is neverthless advisable to not have such errors in a molecular formula.
 
 	The molecular mass will be calculated from isotope masses and abundances listed in \code{\link[enviPat]{isotopes}}.
 

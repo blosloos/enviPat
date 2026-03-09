@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{enviPat News}
 
+\section{CHANGES in version 2.9:}{
+  \itemize{
+    \item R check_chemform - correction now covers isotopologue missing or round brackets at formula beginning or after white spaces within formula
+  }
+}
+
 \section{CHANGES in version 2.8:}{
   \itemize{
     \item src - replace SETLENGTH
